@@ -13,6 +13,13 @@ main {
 
 header {
   border-right: 2px solid gray;
+  padding: 1rem;
+}
+
+header h1 {
+  font-style: italic;
+  color: skyblue;
+  font-size: 45px;
 }
 .container {
   display: flex;
@@ -36,4 +43,27 @@ button {
 }
 .submit-btn {
   width: 25%;
+}
+.image-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.image-container img {
+  width: 20%;
+}
+
+ul li {
+  list-style-type: none;
+  text-align: left;
+}
+.customer-reviews ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.customer-reviews ul li {
+  padding: 5px;
+  background-color: orange;
+  border-radius: 5px;
 }
