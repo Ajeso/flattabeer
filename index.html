@@ -2,48 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flatta Beer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlataBeer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <main>
-        <header>
-            <nav>
-                <h1>Flata Beer</h1>
-                <ul id="beerList">
+  <main>
+    <header>
+      <nav>
+        <h1>FlataBeer</h1>
+        <ul id="beerList"></ul>
+      </nav>
+    </header>
 
-                </ul>
-            </nav>
-        </header>
+    <section class="container">
+      <div id="image-container">
+        <p class="image-description">
+          Description about the image goes here.
+        </p>
+        <!-- Images -->
+      </div>
+      <div class="update-container">
+        <textarea name="update" id="update" cols="30" rows="10"></textarea>
+        <button class="update-btn">UPDATE BEER</button>
+      </div>
 
-        <section class="container">
-            <div id="image-container">
-                <!-- Images -->
-            </div>
-            <div class="update-container">
-                <textarea name="update" id="update" cols="30" rows="10"></textarea>
-                <button class="update-btn">UPDATE BEER</button>
-            </div>
+      <div>
+        <h3>Leave a Review</h3>
+        <textarea name="form" id="review" cols="30" rows="10"></textarea>
+        <button class="submit-btn">SUBMIT</button>
+      </div>
 
-            <div>
-                <h3>Leave a Review</h3>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <button class="submit-btn"> SUBMIT</button>
-            </div>
-
-            <div id="cutomer-reviews">
-                <h3>Customer Reviews</h3>
-                <ul>
-                    <li class="review">Very great</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
+      <div id="customer-reviews">
+        <h3>Customer Reviews</h3>
+        <ul>
+          <li class="review">Very great</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 </body>
-<script src="main.js"></script>
+<script src="script.js"></script>
 
 </html>

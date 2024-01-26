@@ -1,6 +1,9 @@
 "use strict";
 const apiUrl = "/db.json";
 
+const submitBtn = document.querySelector(".submit-btn");
+const reviewsList = document.createElement("ul");
+
 async function fetchData() {
   try {
     const response = await fetch(apiUrl);
@@ -8,8 +11,8 @@ async function fetchData() {
     console.log(data);
 
     return data.beers || []; // Assuming beers is the array of beer objects
-  } catch (error) {
-    console.error("Error fetching data:", error);
+  } catch (err) {
+    console.error("Error fetching data:", err);
     return [];
   }
 }
@@ -46,19 +49,25 @@ function displayBeerImage(beer) {
   console.log("Current beer:", beer);
 
   imageContainer.innerHTML = "";
-  const imageTitle = document.createElement("h2");
+  const imageTitle = document.createElement("h1");
   imageTitle.innerHTML = beer.name;
   imageContainer.appendChild(imageTitle);
 
   // Create and append image
-  const beerImage = document.createElement("img");
-  beerImage.src = beer.image_url;
-  beerImage.alt = beer.name;
+  const beerImage = document.createElement("figure");
+  const img = document.createElement("img");
+  img.src = beer.image_url;
+  img.alt = beer.name;
+  const figcaption = document.createElement("figcaption");
+  figcaption.innerHTML = beer.description;
+  beerImage.appendChild(img);
+  beerImage.appendChild(figcaption);
+  imageContainer.appendChild(beerImage);
+
   imageContainer.appendChild(beerImage);
 
   if (beer.reviews && beer.reviews.length > 0) {
-    const reviewContainer = document.getElementById("cutomer-reviews");
-    const reviewsList = document.createElement("ul");
+    const reviewContainer = document.getElementById("customer-reviews");
 
     beer.reviews.forEach((review) => {
       const reviewItem = document.createElement("li");
@@ -70,9 +79,18 @@ function displayBeerImage(beer) {
   }
 }
 
-(async () => {
+submitBtn.addEventListener("click", () => {
+  const review = document.getElementById("review");
+  const reviewItem = document.createElement("li");
+  reviewItem.textContent = review.value;
+  reviewsList.appendChild(reviewItem);
+  review.value = "";
+});
+
+const fetchBeers = async () => {
   const beers = await fetchData();
 
-  console.log(beers);
   displayBeerNames(beers);
-})();
+};
+
+fetchBeers();
